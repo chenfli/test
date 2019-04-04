@@ -4,10 +4,10 @@ expose:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
   config:
+    path-mode: path
+    exposer: Ingress
     http: true
     tlsacme: false
-    exposer:
-    path-mode: path
 cleanup:
   Args:
     - --cleanup

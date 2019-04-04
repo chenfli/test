@@ -5,7 +5,7 @@ Step: build-step-credential-initializer:
 Step: build-step-git-source-0:
 
 {"level":"warn","ts":1554378621.472246,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1554378621.7056918,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/chenfli/test.git\" @ \"34afa8db9b84f6ed530a7de21c82264e8ea38c2e\" in path \"/workspace\""}
+{"level":"info","ts":1554378621.7056918,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/*******/test.git\" @ \"34afa8db9b84f6ed530a7de21c82264e8ea38c2e\" in path \"/workspace\""}
 Step: build-step-jenkins:
 
 Picked up _JAVA_OPTIONS: -Xmx400m
@@ -68,8 +68,8 @@ Step 6/6 : CMD ["npm", "start"]
  ---> Running in 5ad288a79bd6
  ---> 6ec9582ea5dd
 Successfully built 6ec9582ea5dd
-Successfully tagged 10.3.0.167:5000/chenfli/test:0.0.0-SNAPSHOT-PR-1-15
-The push refers to repository [10.3.0.167:5000/chenfli/test]
+Successfully tagged 10.3.0.167:5000/*******/test:0.0.0-SNAPSHOT-PR-1-15
+The push refers to repository [10.3.0.167:5000/*******/test]
 307c82b3aae8: Preparing
 26c683e848dc: Preparing
 e16c226cf2a8: Preparing
@@ -90,11 +90,11 @@ ed271eac23e9: Layer already exists
 Build complete in 3.678933901s
 Starting test...
 Test complete in 4.3µs
-changeme -> 10.3.0.167:5000/chenfli/test:0.0.0-SNAPSHOT-PR-1-15@sha256:04a1dc0dbed309cb579cda667ee14d6b0b492730d47f1535f84aa41094acfb5f
+changeme -> 10.3.0.167:5000/*******/test:0.0.0-SNAPSHOT-PR-1-15@sha256:04a1dc0dbed309cb579cda667ee14d6b0b492730d47f1535f84aa41094acfb5f
 There is a new version (0.26.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
 
 [Pipeline] sh
-+ jx step post build --image 10.3.0.167:5000/chenfli/test:0.0.0-SNAPSHOT-PR-1-15
++ ** step post build --image 10.3.0.167:5000/*******/test:0.0.0-SNAPSHOT-PR-1-15
 [Pipeline] dir
 Running in /tmp/jenkinsTests.tmp/jenkins3856965102148945259test/workspace/job/charts/preview
 [Pipeline] {
@@ -102,18 +102,18 @@ Running in /tmp/jenkinsTests.tmp/jenkins3856965102148945259test/workspace/job/ch
 + make preview
 sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-15/" Chart.yaml
 sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-15/" ../*/Chart.yaml
-sed -i -e "s|repository:.*|repository: 10.3.0.167:5000\/chenfli\/test|" values.yaml
+sed -i -e "s|repository:.*|repository: 10.3.0.167:5000\/*******\/test|" values.yaml
 sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-1-15/" values.yaml
 sed -i -e "s/ci.att.io/ci.att.io\n    path-mode:path/" values.yaml
 echo "  version: 0.0.0-SNAPSHOT-PR-1-15" >> requirements.yaml
-jx step helm build
+** step helm build
 No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
 Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
 Successfully added Helm repository jenkins-x.
 Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
 Successfully added Helm repository releases.
 [Pipeline] sh
-+ jx preview --app test --dir ../..
++ ** preview --app test --dir ../..
 Creating a preview
 Commit author email is empty for: 73182f75dfd72b68ab2236aa5a0639607f2b0ea8
 Looking for commits in: /tmp/jenkinsTests.tmp/jenkins3856965102148945259test/workspace/job/
@@ -159,7 +159,7 @@ Looking for commits in: /tmp/jenkinsTests.tmp/jenkins3856965102148945259test/wor
 Commit not found: 9383553620584ec4fb08fcede203feeba8bbb1dd
 Commit author email is empty for: 34afa8db9b84f6ed530a7de21c82264e8ea38c2e
 Looking for commits in: /tmp/jenkinsTests.tmp/jenkins3856965102148945259test/workspace/job/
-Found commit author match for: chenfli with email address: cf9536@att.com
+Found commit author match for: ******* with email address: cf9536@att.com
 expose:
   Annotations:
     helm.sh/hook: post-install,post-upgrade
@@ -170,7 +170,7 @@ expose:
     http: "true"
 preview:
   image:
-    repository: 10.3.0.167:5000/chenfli/test
+    repository: 10.3.0.167:5000/*******/test
     tag: 0.0.0-SNAPSHOT-PR-1-15
 Applying generated chart . YAML via kubectl in dir: /tmp/helm-template-workdir-727133849/preview/output
 role.rbac.authorization.k8s.io/cleanup configured
@@ -188,8 +188,8 @@ Waiting for helm post-upgrade hook Job expose to complete before removing it
 Deleting helm hook sources from file: /tmp/helm-template-workdir-727133849/preview/helmHooks/preview/charts/expose/templates/job.yaml
 job.batch "expose" deleted
 Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=preview,jenkins.io/version!=0.0.0-SNAPSHOT-PR-1-15
-Failed to update PipelineActivities chenfli-test-pr-1-15: the namespace of the object (jx-chenfli-test-pr-1) does not match the namespace on the request (jx)
-Preview application is now available at: http://test.jx-chenfli-test-pr-1.ci.att.io
+Failed to update PipelineActivities *******-test-pr-1-15: the namespace of the object (**-*******-test-pr-1) does not match the namespace on the request (**)
+Preview application is now available at: http://test.**-*******-test-pr-1.ci.att.io
 
 [Pipeline] }
 [Pipeline] // dir

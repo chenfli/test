@@ -10,10 +10,10 @@ else ifeq ($(OS),Linux)
 	sed -i -e "s/version:.*/version: $(PREVIEW_VERSION)/" ../*/Chart.yaml
 	sed -i -e "s|repository:.*|repository: $(DOCKER_REGISTRY)\/chenfli\/test|" values.yaml
 	sed -i -e "s/tag:.*/tag: $(PREVIEW_VERSION)/" values.yaml
+	sed -i -e "s/ci.att.io/ci.att.io\n    path-mode:path/" values.yaml
 else
 	echo "platfrom $(OS) not supported to release from"
 	exit -1
 endif
 	echo "  version: $(PREVIEW_VERSION)" >> requirements.yaml
-	echo "  path-mode: path" >> requirements.yaml
 	jx step helm build

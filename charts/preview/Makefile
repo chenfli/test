@@ -15,4 +15,5 @@ else
 	exit -1
 endif
 	echo "  version: $(PREVIEW_VERSION)" >> requirements.yaml
+	echo "  path-mode: path" >> requirements.yaml
 	jx step helm build

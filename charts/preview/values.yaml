@@ -7,7 +7,6 @@ expose:
     http: true
     tlsacme: false
     exposer:
-    watch-current-namespace: true
     path-mode: path
 cleanup:
   Args:
